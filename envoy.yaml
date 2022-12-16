@@ -48,7 +48,7 @@ static_resources:
               - match:
                   prefix: "/invoice"
                 route:
-                  prefix_rewrite: "/api/invoice/getInvoice"
+                  prefix_rewrite: "/api/invoice"
                   cluster: invoice_cluster
               - match:
                   prefix: "/pay"
@@ -58,7 +58,7 @@ static_resources:
               - match:
                   prefix: "/transaction"
                 route:
-                  prefix_rewrite: "/api/transaction/getTransactionById"
+                  prefix_rewrite: "/api/transaction"
                   cluster: transaction_cluster
               response_headers_to_add:
               - header:
