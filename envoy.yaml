@@ -79,7 +79,7 @@ static_resources:
                       inline_string: '{"keys":[{"typ": "JWT", "kty":"oct","alg":"HS256","kid":"df","k":"S2V5U2VjcmV0IzEyM0Fmb3JvMjU1IzI1NSNOb2RlSlNNaWNybw=="}]}' #https://www.base64encode.org/  ->  ENCODE ->   KeySecret#123Aforo255#255#NodeJSMicro
                 rules:
                   - match:
-                      prefix: /invoices
+                      prefix: /invoice
                     requires:
                       provider_name: jwt_provider
                   - match:
