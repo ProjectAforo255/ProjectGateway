@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-gateway
+  labels:
+    app: service-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-gateway
+  template:
+    metadata:
+      labels:
+        app: service-gateway
+    spec:
+      containers:
+      - name: app-gateway
+        image: holgadom/app-gateway:2
+        ports:
+        - containerPort: 10000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: app-gateway
+spec:
+  type: LoadBalancer
+  selector:
+    app: service-gateway
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 10000
+    name: http
