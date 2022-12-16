@@ -107,7 +107,7 @@ static_resources:
         - endpoint:
             address:
               socket_address:
-                address: app-service-security
+                address: app-security
                 port_value: 80
   - name: invoice_cluster
     connect_timeout: 60s
