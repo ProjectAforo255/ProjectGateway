@@ -48,7 +48,17 @@ static_resources:
               - match:
                   prefix: "/invoice"
                 route:
-                  prefix_rewrite: "/api/invoice"
+                  prefix_rewrite: "/api/invoice/getInvoices"
+                  cluster: invoice_cluster
+              - match:
+                  prefix: "/invoice/id"
+                route:
+                  prefix_rewrite: "/api/invoice/getInvoiceById"
+                  cluster: invoice_cluster
+              - match:
+                  prefix: "/invoice/add"
+                route:
+                  prefix_rewrite: "/api/invoice/addInvoice"
                   cluster: invoice_cluster
               - match:
                   prefix: "/pay"
@@ -80,6 +90,14 @@ static_resources:
                 rules:
                   - match:
                       prefix: /invoice
+                    requires:
+                      provider_name: jwt_provider
+                  - match:
+                      prefix: /invoice/id
+                    requires:
+                      provider_name: jwt_provider
+                  - match:
+                      prefix: /invoice/add
                     requires:
                       provider_name: jwt_provider
                   - match:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-gateway
-        image: holgadom/app-gateway:5
+        image: holgadom/app-gateway:6
         ports:
         - containerPort: 10000
 ---
