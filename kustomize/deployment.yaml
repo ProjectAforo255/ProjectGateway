@@ -19,17 +19,3 @@ spec:
         image: holgadom/app-gateway:8
         ports:
         - containerPort: 10000
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: app-gateway
-spec:
-  type: LoadBalancer
-  selector:
-    app: service-gateway
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 10000
-    name: http
